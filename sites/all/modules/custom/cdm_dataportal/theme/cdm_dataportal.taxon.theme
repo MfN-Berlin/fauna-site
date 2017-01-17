@@ -1,0 +1,54 @@
+<?php
+/**
+ * @file
+ * Taxon Theming functions.
+ *
+ * @copyright
+ *   (C) 2007-2012 EDIT
+ *   European Distributed Institute of Taxonomy
+ *   http://www.e-taxonomy.eu
+ *
+ *   The contents of this module are subject to the Mozilla
+ *   Public License Version 1.1.
+ * @see http://www.mozilla.org/MPL/MPL-1.1.html
+ */
+
+
+  /**
+ * @todo document this function.
+ */
+function theme_cdm_taxon_list_thumbnails($variables) {
+
+  $taxon = $variables['taxon'];
+  $out = '';
+  $gallery_settings = getGallerySettings(CDM_DATAPORTAL_SEARCH_GALLERY_NAME);
+  $showCaption = $gallery_settings['cdm_dataportal_show_thumbnail_captions'];
+  if ($showCaption) {
+    $captionElements = array(
+      'title',
+      'rights',
+    );
+  } else {
+    $captionElements = array();
+  }
+
+  $gallery_name = $taxon->uuid;
+
+  $mediaList = _load_media_for_taxon($taxon);
+
+  $galleryLinkUri = path_to_taxon($taxon->uuid, 'images');
+
+  $out .= theme('cdm_media_gallerie', array(
+    'mediaList' => $mediaList,
+    'galleryName' => $gallery_name,
+    'maxExtend' => $gallery_settings['cdm_dataportal_media_maxextend'],
+    'cols' => $gallery_settings['cdm_dataportal_media_cols'],
+    'maxRows' => $gallery_settings['cdm_dataportal_media_maxRows'],
+    'captionElements' => $captionElements,
+    'mediaLinkType' => 'LIGHTBOX',
+    'alternativeMediaUri' => NULL,
+    'galleryLinkUri' => $galleryLinkUri,
+     ));
+
+  return $out;
+}

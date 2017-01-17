@@ -1,0 +1,59 @@
+core: 7.x
+api: 2
+defaults:
+  projects:
+    subdir: 'contrib'
+projects:
+  drupal:
+    version: '7.53'
+  admin_menu:
+    version: 3.0-rc5
+  admin_views:
+    version: '1.6'
+  ctools:
+    version: '1.12'
+  entity:
+    version: '1.8'
+  features:
+    version: '2.10'
+  file_entity:
+    version: 2.0-beta3
+  hacked:
+    version: 2.0-beta6
+  panels:
+    version: '3.8'
+  link:
+    version: '1.4'
+  media:
+    version: 2.0-beta14
+  module_filter:
+    version: 2.0
+  nice_menus:
+    version: '2.5'
+  node_export:
+    version: '3.1'
+  token:
+    version: '1.6'
+  uuid:
+    version: 1.0-beta2
+  views:
+    version: '3.14'
+  views_bulk_operations:
+    version: '3.3'
+  webform:
+    version: '4.14'
+  wysiwyg:
+    version: '2.2'
+  zen:
+    version: '5.5'
+## Custom Stuff
+#  faeu:
+#    download: 'git://github.com/MfN-Berlin/FaEu-CDM-Dataportal-Module.git
+#  CDM_Portal:
+#    type: profile
+#    custom_download: true
+#    subdir: 'custom'
+#  zen_dataportal:
+#    type: theme
+#    custom_download: true
+#    subdir: 'custom'
