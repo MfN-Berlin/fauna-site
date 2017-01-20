@@ -12,6 +12,82 @@ function fauna_migration_feature_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['block-faeu_address'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'machine_name' => 'faeu_address',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'cyprus' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'cyprus',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'zen' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'zen',
+        'weight' => 0,
+      ),
+      'zen_dataportal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'zen_dataportal',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Fauna Europaea Secretariat ',
+    'visibility' => 0,
+  );
+
+  $export['block-faeu_statistics'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'machine_name' => 'faeu_statistics',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'cyprus' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'cyprus',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+      'zen' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'zen',
+        'weight' => 0,
+      ),
+      'zen_dataportal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'zen_dataportal',
+        'weight' => -4,
+      ),
+    ),
+    'title' => 'Statistics',
+    'visibility' => 0,
+  );
+
   $export['cdm_api-cdm_ws_debug'] = array(
     'cache' => -1,
     'custom' => 0,

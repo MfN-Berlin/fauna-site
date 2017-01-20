@@ -13,9 +13,503 @@ function fauna_migration_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'cdm-name-render-templates';
+  $strongarm->value = array(
+    'polytomousKey' => (object) array(
+      'namePart' => (object) array(
+        '#uri' => TRUE,
+      ),
+    ),
+    'taxon_page_synonymy,related_taxon' => (object) array(
+      'nameAuthorPart' => (object) array(
+        '#uri' => TRUE,
+      ),
+      'referencePart' => TRUE,
+      'statusPart' => TRUE,
+      'descriptionPart' => TRUE,
+    ),
+    'homonym' => (object) array(
+      'nameAuthorPart' => (object) array(
+        '#uri' => TRUE,
+      ),
+      'referenceYearPart' => TRUE,
+    ),
+    'taxon_page_title,acceptedFor,typedesignations,list_of_taxa' => (object) array(
+      'nameAuthorPart' => (object) array(
+        '#uri' => TRUE,
+      ),
+      'referencePart' => TRUE,
+    ),
+    '#DEFAULT' => (object) array(
+      'nameAuthorPart' => (object) array(
+        '#uri' => TRUE,
+      ),
+      'referencePart' => TRUE,
+    ),
+  );
+  $export['cdm-name-render-templates'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm-part-definitions';
+  $strongarm->value = array(
+    'ZoologicalName' => (object) array(
+      'namePart' => (object) array(
+        'name' => TRUE,
+      ),
+      'nameAuthorPart' => (object) array(
+        'name' => TRUE,
+      ),
+      'referencePart' => (object) array(
+        'authors' => TRUE,
+      ),
+      'microreferencePart' => (object) array(
+        'microreference' => TRUE,
+      ),
+      'statusPart' => (object) array(
+        'status' => TRUE,
+      ),
+      'descriptionPart' => (object) array(
+        'description' => TRUE,
+      ),
+    ),
+    'BotanicalName' => (object) array(
+      'namePart' => (object) array(
+        'name' => TRUE,
+      ),
+      'nameAuthorPart' => (object) array(
+        'name' => TRUE,
+        'authors' => TRUE,
+      ),
+      'referencePart' => (object) array(
+        'reference' => TRUE,
+        'microreference' => TRUE,
+      ),
+      'referenceYearPart' => (object) array(
+        'reference.year' => TRUE,
+      ),
+      'statusPart' => (object) array(
+        'status' => TRUE,
+      ),
+      'descriptionPart' => (object) array(
+        'description' => TRUE,
+      ),
+    ),
+    '#DEFAULT' => (object) array(
+      'namePart' => (object) array(
+        'name' => TRUE,
+      ),
+      'nameAuthorPart' => (object) array(
+        'name' => TRUE,
+        'authors' => TRUE,
+      ),
+      'referencePart' => (object) array(
+        'reference' => TRUE,
+      ),
+      'microreferencePart' => (object) array(
+        'microreference' => TRUE,
+      ),
+      'statusPart' => (object) array(
+        'status' => TRUE,
+      ),
+      'descriptionPart' => (object) array(
+        'description' => TRUE,
+      ),
+    ),
+  );
+  $export['cdm-part-definitions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_aggregate_by_taxon_relationships';
+  $strongarm->value = array(
+    'direct' => array(),
+    'invers' => array(),
+  );
+  $export['cdm_aggregate_by_taxon_relationships'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_all_footnotes';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_all_footnotes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_annotations_footnotes';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_annotations_footnotes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_compressed_specimen_derivate_table';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_compressed_specimen_derivate_table'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_compressed_specimen_derivate_table_show_determined_as';
+  $strongarm->value = 1;
+  $export['cdm_dataportal_compressed_specimen_derivate_table_show_determined_as'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_default_tab';
+  $strongarm->value = '0';
+  $export['cdm_dataportal_default_tab'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_display_is_accepted_for';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_display_is_accepted_for'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_display_taxon_relationships';
+  $strongarm->value = 1;
+  $export['cdm_dataportal_display_taxon_relationships'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_featuretree_uuid';
+  $strongarm->value = 'ff59b9ad-1fb8-4aa4-a8ba-79d62123d0fb';
+  $export['cdm_dataportal_featuretree_uuid'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_geoservice_display_width';
+  $strongarm->value = '600';
+  $export['cdm_dataportal_geoservice_display_width'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_nomref_in_title';
+  $strongarm->value = 1;
+  $export['cdm_dataportal_nomref_in_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_search_items_on_page';
+  $strongarm->value = '25';
+  $export['cdm_dataportal_search_items_on_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_show_advanced_search';
+  $strongarm->value = 1;
+  $export['cdm_dataportal_show_advanced_search'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_show_back_to_search_results';
+  $strongarm->value = 1;
+  $export['cdm_dataportal_show_back_to_search_results'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_structdesc_featuretree_uuid';
+  $strongarm->value = '';
+  $export['cdm_dataportal_structdesc_featuretree_uuid'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_taxonpage_tabs';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_taxonpage_tabs'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_dataportal_taxon_auto_suggest';
+  $strongarm->value = 0;
+  $export['cdm_dataportal_taxon_auto_suggest'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_debug_mode';
+  $strongarm->value = 0;
+  $export['cdm_debug_mode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_distribution_filter';
+  $strongarm->value = array(
+    'filter_rules' => array(
+      'statusOrderPreference' => 'statusOrderPreference',
+      'subAreaPreference' => 0,
+    ),
+    'hiddenAreaMarkerType' => array(),
+  );
+  $export['cdm_distribution_filter'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_drupal_node_creation';
+  $strongarm->value = 0;
+  $export['cdm_drupal_node_creation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_images_include_children';
+  $strongarm->value = '0';
+  $export['cdm_images_include_children'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_js_devel_mode';
+  $strongarm->value = 0;
+  $export['cdm_js_devel_mode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_map_distribution';
+  $strongarm->value = array(
+    'aspect_ratio' => 2,
+    'bbox' => '-33.75,33.7243397779702,50.625,76.84081644345761',
+    'show_labels' => 0,
+    'caption' => '',
+    'distribution_opacity' => '0.8',
+    'map_type' => '1',
+    'image_map' => array(
+      'base_layer' => '',
+      'bg_color' => '1874CD',
+      'layer_style' => 'ffffff,606060,,',
+      'width' => 512,
+      'projection' => '',
+      'height' => 1024,
+    ),
+    'openlayers' => array(
+      'base_layers' => array(
+        'PREFERRED' => 'custom_wms_base_layer_1',
+        'custom_wms_base_layer_1' => 'custom_wms_base_layer_1',
+      ),
+      'custom_wms_base_layer' => array(
+        'name' => 'Fauna Europaea 2016',
+        'url' => 'http://edit.africamuseum.be/geoserver/topp/wms',
+        'params' => '{
+  "Layers": "topp:fauna_europaea_2016",
+  "Format": "image/png",
+  "BGCOLOR": "0xe0faff"
+}',
+        'projection' => 'EPSG:7777777',
+        'proj4js_def' => '+proj=lcc +lat_1=42 +lat_2=56 +lat_0=35 +lon_0=24 +x_0=3000000 +y_0=100000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs',
+        'max_extent' => '-1600072.75,-1364034.540527,5600000,5836038.209473',
+        'units' => 'm',
+      ),
+      'show_layer_switcher' => 1,
+      'display_outside_max_extent' => 0,
+    ),
+    'legend' => array(
+      'show' => 1,
+      'opacity' => '1.0',
+      'font_size' => '10',
+      'font_style' => '0',
+      'icon_width' => '35',
+      'icon_height' => '15',
+    ),
+  );
+  $export['cdm_map_distribution'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_occurrence_featuretree_uuid';
+  $strongarm->value = 'ac8d4e58-926d-4f81-ac77-cebdd295df7c';
+  $export['cdm_occurrence_featuretree_uuid'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_search_taxa_mode';
+  $strongarm->value = array(
+    'doTaxa' => 'doTaxa',
+    'doSynonyms' => 0,
+    'doTaxaByCommonNames' => 0,
+    'doMisappliedNames' => 0,
+  );
+  $export['cdm_search_taxa_mode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxonomictree_uuid';
+  $strongarm->value = 'b8fa363d-ae55-4b8b-b696-eba58419cc6b';
+  $export['cdm_taxonomictree_uuid'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxonpage_tabs_visibility';
+  $strongarm->value = array(
+    'General' => 'General',
+    'Synonymy' => 'Synonymy',
+    'Images' => 'Images',
+    'Specimens' => 'Specimens',
+    'Keys' => 'Keys',
+    'Experts' => 'Experts',
+  );
+  $export['cdm_taxonpage_tabs_visibility'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxonpage_tabs_weight';
+  $strongarm->value = array(
+    'general' => '-3',
+    'synonymy' => '-4',
+    'images' => '0',
+    'specimens' => '1',
+    'keys' => '3',
+    'experts' => '-4',
+  );
+  $export['cdm_taxonpage_tabs_weight'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxontree_ranklimit';
+  $strongarm->value = '0';
+  $export['cdm_taxontree_ranklimit'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxon_media_filter';
+  $strongarm->value = array(
+    'includeTaxonDescriptions' => 'includeTaxonDescriptions',
+    'includeTaxonNameDescriptions' => 0,
+    'includeOccurrences' => 0,
+  );
+  $export['cdm_taxon_media_filter'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxon_profile_image';
+  $strongarm->value = array(
+    'show' => 0,
+    'maxextend' => '184',
+    'media_uri_query' => '',
+    'custom_placeholder_enabled' => 0,
+    'custom_placeholder_image_on' => 0,
+    'custom_placeholder_image_fid' => '',
+  );
+  $export['cdm_taxon_profile_image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_taxon_relationship_types';
+  $strongarm->value = array(
+    '1ed87175-59dd-437e-959e-0d71583d8417' => '1ed87175-59dd-437e-959e-0d71583d8417',
+    '605b1d01-f2b1-4544-b2e0-6f08def3d6ed' => '605b1d01-f2b1-4544-b2e0-6f08def3d6ed',
+    '0e5099bb-87c0-400e-abdc-bcfed5b5eece' => 0,
+    'a8f03491-2ad6-4fae-a04c-2a4c117a2e9b' => 0,
+    '0170cd83-93ad-43c2-9ad1-7ac879300e2f' => 0,
+    '6c16c33b-cfc5-4a00-92bd-a9f9e448f389' => 0,
+    '60974c98-64ab-4574-bb5c-c110f6db634d' => 0,
+    '2046a0fd-4fd6-45a1-b707-2b91547f3ec7' => 0,
+    '758e6cf3-05a0-49ed-9496-d8c4a9fd02ae' => 0,
+    'c3ed5089-6779-4051-bb24-f5ea0eca80d5' => 0,
+    'ecd2382b-3d94-4169-9dd2-2c4ea1d24605' => 0,
+    '6fabef72-5264-44f1-bfc0-8e2e141375f2' => 0,
+    'b55cb3a2-6e20-4ca3-95bc-12b59d3235b0' => 0,
+    '6ee440bc-fd3d-4da2-ad85-906d35a94731' => 0,
+    '43d8492c-8bd5-4f38-a633-f1ad910a34dd' => 0,
+    '43466aa9-e431-4f37-8bca-febfd9f63716' => 0,
+    '0501c385-cab1-4fbe-b945-fc747419bb13' => 0,
+    '623ecdeb-ff1f-471d-a8dc-0d75b2fe8d94' => 0,
+    '831fcd88-e5c9-49e0-b06e-bbb67d1c05c9' => 0,
+    '4535a63c-4a3f-4d69-9350-7bf02e2c23be' => 0,
+    '89dffa4e-e004-4d42-b0d1-ae1827529e43' => 0,
+    'd5c6953d-aa53-46f8-aafc-ebc6428ad5d0' => 0,
+    'f1ec567b-3c73-436b-8625-b4fd53588abb' => 0,
+    'd13fecdf-eb44-4dd7-9244-26679c05df1c' => 0,
+    'b7153c89-cc6c-4f8c-bf74-216f10feac46' => 0,
+    '2d923b1a-6c0f-414c-ac9b-bbc502e18078' => 0,
+    '78355cfa-5200-432f-8e00-82b97afad0ed' => 0,
+  );
+  $export['cdm_taxon_relationship_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_cache';
+  $strongarm->value = 1;
+  $export['cdm_webservice_cache'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_proxy_port';
+  $strongarm->value = '80';
+  $export['cdm_webservice_proxy_port'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_proxy_pwd';
+  $strongarm->value = '';
+  $export['cdm_webservice_proxy_pwd'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_proxy_url';
+  $strongarm->value = '';
+  $export['cdm_webservice_proxy_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_proxy_usr';
+  $strongarm->value = '';
+  $export['cdm_webservice_proxy_usr'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cdm_webservice_url';
+  $strongarm->value = 'http://172.18.0.1:8080/dockerMaria/';
+  $export['cdm_webservice_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_page';
   $strongarm->value = 0;
   $export['comment_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'default_page_manager_pages';
+  $strongarm->value = array();
+  $export['default_page_manager_pages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -113,6 +607,13 @@ function fauna_migration_feature_strongarm() {
   $strongarm->name = 'node_submitted_page';
   $strongarm->value = 0;
   $export['node_submitted_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'page_manager_search_disabled_user';
+  $strongarm->value = FALSE;
+  $export['page_manager_search_disabled_user'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
